@@ -18,10 +18,10 @@ if (currentLink) {
 }
 
 let pages = [
-    { url: 'index.html', title: 'Home' },
-    { url: 'projects/', title: 'Projects' },
-    { url: 'contact/', title: 'Contact' },
-    { url: 'resume.html', title: 'Resume' }
+    { url: 'insertNameHere/index.html', title: 'Home' },
+    { url: 'insertNameHere/projects/', title: 'Projects' },
+    { url: 'insertNameHere/contact/', title: 'Contact' },
+    { url: 'insertNameHere/resume.html', title: 'Resume' }
 ];
 
 let nav = document.createElement('nav');
@@ -30,11 +30,9 @@ document.body.prepend(nav);
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    if (title == 'Home' || title == 'Resume')   {
-        url = `${REPO_BASE}/${url}`;
-    } else if (!url.startsWith('http')) {
-        url = `${REPO_BASE}/${url}`;
-    }
+    if (url == 'insertNameHere/projects/' || url == 'insertNameHere/contact/')   {
+        url = '../' + url;
+    } 
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
