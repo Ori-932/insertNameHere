@@ -18,7 +18,7 @@ if (currentLink) {
 }
 
 let pages = [
-    { url: '', title: 'Home' },
+    { url: 'index.html', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact' },
     { url: 'resume.html', title: 'Resume' }
@@ -30,21 +30,19 @@ document.body.prepend(nav);
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-
-    if (!url.startsWith('/')) {
-        url = '/' + url;
+    if (!ARE_WE_HOME && !url.startsWith('http')) {
+        url = '../' + url; // Prepend '../' for pages in subdirectories
     }
-
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
 
     a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
 
+
     if (a.host !== location.host) {
         a.target = '_blank';
     }
-
     nav.append(a);
 }
 
