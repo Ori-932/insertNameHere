@@ -8,7 +8,6 @@ body {
   line-height: 1.6; 
   font-family: Arial, sans-serif; 
   color: var(--color-accent);
-  background-color: #f4f4f4;
 }
 html {
   color-scheme: light dark;
@@ -37,6 +36,10 @@ nav li {
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom-color: var(--border-color);
+  display: flex;
+  justify-content: space-evenly; /* Spread links evenly */
+  align-items: center; /* Center the items vertically */
+  padding: 1rem; /* Add padding for spacing */
 }
 
 nav a {
