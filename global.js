@@ -33,7 +33,7 @@ for (let p of pages) {
     if (title == 'Home' || title == 'Resume')   {
         url = `${REPO_BASE}/${url}`;
     } else if (!url.startsWith('http')) {
-        url = `${REPO_BASE}/../${url}`;
+        url = `${REPO_BASE}/${url}`;
     }
     let a = document.createElement('a');
     a.href = url;
