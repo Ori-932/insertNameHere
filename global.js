@@ -3,7 +3,7 @@ console.log('IT’S ALIVE!');
 function $$(selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
 }
-
+const REPO_BASE = '/insertNameHere';
 const navLinks = $$("nav a");
 console.log(navLinks); 
 
@@ -30,8 +30,10 @@ document.body.prepend(nav);
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    if (!ARE_WE_HOME && !url.startsWith('http')) {
-        url = '../' + 'insertNameHere/' + url; // Prepend '../' for pages in subdirectories
+    if (ARE_WE_HOME) {
+        url = `${REPO_BASE}/${url}`;
+    } else if (!url.startsWith('http')) {
+        url = `${REPO_BASE}/../${url}`;
     }
     let a = document.createElement('a');
     a.href = url;
