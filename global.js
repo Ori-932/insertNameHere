@@ -32,8 +32,8 @@ for (let p of pages) {
     let title = p.title;
     if (title == 'home' || title == 'Resume' )   {
         url = url;
-    } else if (!url.startsWith('http')) {
-        url = `../${url}`;
+    } else {
+        url = '../' + url;
     }
     let a = document.createElement('a');
     a.href = url;
