@@ -18,7 +18,7 @@ if (currentLink) {
 }
 
 let pages = [
-    { url: '', title: 'Home' },
+    { url: 'index.html', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact' },
     { url: 'resume.html', title: 'Resume' }
@@ -31,9 +31,9 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
     if (title == 'home' || title == 'Resume' )   {
-        url = url;
+        url = `/${REPO_BASE}/${url}`;
     } else {
-        url = '../' + url;
+        url = `/${REPO_BASE}/../${url}`;
     }
     let a = document.createElement('a');
     a.href = url;
