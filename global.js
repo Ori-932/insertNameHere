@@ -31,7 +31,7 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
     if (!ARE_WE_HOME && !url.startsWith('http')) {
-        url = '../' + url; // Prepend '../' for pages in subdirectories
+        url = '../' + 'insertNameHere/' + url; // Prepend '../' for pages in subdirectories
     }
     let a = document.createElement('a');
     a.href = url;
