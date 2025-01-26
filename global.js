@@ -30,7 +30,7 @@ document.body.prepend(nav);
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    if (ARE_WE_HOME) {
+    if (url == 'index.html' || url == 'resume.html')   {
         url = `${REPO_BASE}/${url}`;
     } else if (!url.startsWith('http')) {
         url = `${REPO_BASE}/../${url}`;
