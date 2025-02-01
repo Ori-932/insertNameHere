@@ -81,3 +81,64 @@ themeSwitch.addEventListener('change', (event) => {
         localStorage.setItem('color-scheme', selectedTheme);
     }
 });
+
+export async function fetchJSON(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch projects: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Error fetching or parsing JSON data:', error);
+    }
+}
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+    containerElement.innerHTML = '';
+    const article = document.createElement('article');
+
+    article.innerHTML = `
+        <${headingLevel}>${project.title}</${headingLevel}>
+        <img src="${project.image}" alt="${project.title}">
+        <p>${project.description}</p>
+    `;
+    containerElement.appendChild(article);
+}
+
+fetchJSON("lib/projects.json") 
+    .then(data => {
+        const projectsContainer = document.querySelector('.projects'); // Make sure you have this container in your HTML
+        data.forEach(project => {
+            renderProjects(project, projectsContainer); 
+        });; 
+
+    })
+    .catch(error => {
+        console.error('Error loading projects:', error);
+    });
+
+    export function renderProjects(project, containerElement, headingLevel = 'h2') {
+        const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+        if (!validHeadings.includes(headingLevel)) {
+            console.warn(`Invalid heading level "${headingLevel}", defaulting to "h2".`);
+            headingLevel = 'h2';
+        }
+    
+        containerElement.innerHTML = ''; 
+        const article = document.createElement('article');
+        article.innerHTML = `
+            <${headingLevel}>${project.title}</${headingLevel}>
+            <img src="${project.image}" alt="${project.title}">
+            <p>${project.description}</p>
+        `;
+        containerElement.appendChild(article);
+    }
+
+    export async function fetchGitHubData(username) {
+        const url = `https://api.github.com/users/Ori-93`;
+        return fetchJSON(url); 
+    }
+    
