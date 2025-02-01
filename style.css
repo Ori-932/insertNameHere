@@ -189,19 +189,3 @@ button[type="submit"]:hover {
   font-size: inherit;
 }
 
-#profile-stats {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 300px;
-}
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-#profile-stats dt {
-  font-weight: bold;
-}
